@@ -1,0 +1,62 @@
+<lx-tabs>
+	<lx-tab heading="Matches">
+		//GENERAR LOS VALORES EN LOS OPTIONS PARA LAS JORNADAS 1-MATCHDAY ACTUAL EN ORDER INVERSO (ASCENDENTE) 
+		//DIRECTIVA?
+		<select name="jornadas" id="">
+			<option ng-repeat="match in matches.fixtures.matchday | orderBy:-1" value="{{ matches.fixtures.matchday }}">{{ match.matchday }}</option>
+		</select>
+		<div class="p+">
+			<div ng-repeat="match in matches.fixtures">
+				<div class="card top-space row">
+					<div ng-controller="specialTeam"  ng-init="getLogo(match.homeTeamId)">
+						<img ng-src="{{ ::extra.crestUrl }}" alt="" style="width:40px;">
+					</div>
+					<p>{{ match.homeTeamName }}</p>
+					<p>{{ match.result.goalsHomeTeam }}</p>
+					<div ng-controller="specialTeam"  ng-init="getLogo(match.awayTeamId)">
+						<img ng-src="{{ ::extra.crestUrl }}" alt="" style="width:40px;">
+					</div>
+					<p>{{ match.awayTeamName }}</p>
+					<p>{{ match.result.goalsAwayTeam }}</p>
+					<p>{{ match.status }}</p>
+				</div>
+			</div>
+		</div>
+	</lx-tab>
+	<lx-tab heading="{{estas.leagueCaption}}">
+	 	
+	 		<div class="p+">
+	 			<div class="stats">
+	 				<div class="col-md-6 col-md-offset-6">
+	 					<p class="col-md-4">JJ</p>
+	 					<p class="col-md-4">DG</p>
+	 					<p class="col-md-4 padding-left">PTS</p>
+	 				</div>
+	 			</div>
+				<div ng-repeat="esta in estas.standing">
+					<div class="card tableItem row">
+						<div class="col-md-6">
+							<div class="col-md-1">
+								<p>{{ ::esta.rank }}</p>	
+							</div>
+							
+								<img class="col-md-5" ng-src="{{ ::esta.crestURI }}" alt="">
+							
+							<div class="name col-md-6 valign">
+									<a href="/equipo/{{ ::esta.teamId }}"><p>{{ ::esta.team }}</p></a>
+							</div>	
+						</div>
+						
+						<div class="valign col-md-6">
+							<p class="col-md-4">{{ ::esta.playedGames }}</p>
+							<p class="col-md-4">{{ ::esta.goalDifference }}</p>
+							<p class="col-md-4">{{ ::esta.points }}</p>	
+						</div>
+						
+					</div>
+					
+				</div>
+			</div>
+			
+	</lx-tab>
+</lx-tabs>

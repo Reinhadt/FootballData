@@ -1,0 +1,18 @@
+<lx-tabs>
+	<lx-tab heading="{{titulo}}">
+	 	
+	 		<div class="p+">
+				<div class="card top-space" ng-repeat="liga in ligas">
+					<!-- <img ng-src="{{}}" alt="" class="teamImg"> -->
+					<a href="/liga/{{ liga.id }}">
+
+						<p class="nombre">{{liga.caption}}</p>
+
+					</a>
+						
+
+				</div>
+			</div>
+			
+	</lx-tab>
+</lx-tabs>

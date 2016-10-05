@@ -1,0 +1,66 @@
+<lx-tabs>
+	<lx-tab heading="{{ ::equipos.name }}">
+	 	
+	 		<div class="p+">
+	 		
+	 			<div class="card">
+	 				<img ng-src="{{ ::equipos.crestUrl }}" alt="" style="width:120px;">
+	 				{{ ::equipos.name }}
+	 				{{ ::equipos.code }}	
+					{{ ::equipos.squadMarketValue }}
+	 			</div>
+				<!-- TODO: DESAPARECER LOS PARTIDOS DE CHAMPIONS O PONERLOS Y PONERLES EL LOGO DE LA CHAMPIONS!! --!
+				<!-- TODO: PONER UN LOGUITO EN LUGAR DE LA POSICIÓN DE CADA JUGADOR. EJ: PORTERO->GUANTES -->
+				<div class="card nextGame" ng-repeat="fixture in fixtures.fixtures" ng-if="fixture.status == 'TIMED'  && fixture.competitionId != '440'">
+
+					<div ng-controller="specialTeam"  ng-init="getLogo(fixture.homeTeamId)">
+						<img ng-src="{{ ::extra.crestUrl }}" alt="" style="width:40px;">
+					</div>
+					<p>{{ fixture.homeTeamName }}</p>
+					<div ng-controller="specialTeam"  ng-init="getLogo(fixture.awayTeamId)">
+						<img ng-src="{{ ::extra.crestUrl }}" alt="" style="width:40px;">
+					</div>
+					<p>{{ fixture.awayTeamName }}</p>
+					<p>{{ fixture.date | date:'dd/MM/yyyy' }}</p>
+				</div>
+	 			<div class="card top-space" ng-repeat="fixture in fixtures.fixtures | orderBy:'-date'" ng-if="fixture.status == 'FINISHED' && fixture.competitionId != '440'">
+					 
+						<!--<p>{{ fixture._links.homeTeam.href | limitTo: 40: 38 }}</p>-->
+						<div ng-controller="specialTeam"  ng-init="getLogo(fixture.homeTeamId)">
+							<img ng-src="{{ ::extra.crestUrl }}" alt="" style="width:40px;">
+						</div>
+	 					<p>{{ ::fixture.homeTeamName }}</p>
+	 					<p>{{ ::fixture.result.goalsHomeTeam}}</p>
+						<div ng-controller="specialTeam"  ng-init="getLogo(fixture.awayTeamId)">
+							<img ng-src="{{ ::extra.crestUrl }}" alt="" style="width:40px;">
+						</div>
+	 					<p>{{ ::fixture.awayTeamName }}</p>
+	 					<p>{{ ::fixture.result.goalsAwayTeam}}</p>
+	 					<p>{{ ::fixture.date | date:'dd/MM/yyyy'}}</p>
+						<p>{{ ::fixture.status }}</p>
+					 
+	 						<!--NEXT STEP:
+							 //Mostrar los logos de los equipos local y visitante, arreglar css y otros datos útiles como siguiente partido etc.-->
+	 					
+	 			</div>
+			</div>
+			
+	</lx-tab>
+	<lx-tab heading="Jugadores">
+		<div class="p">
+			<div class="card top-space" ng-repeat="jugador in jugadores.players">
+				<div class="number">
+					<p>{{ jugador.jerseyNumber }}</p>
+				</div>
+				<div class="loDemas">
+					<p>{{ jugador.name }}</p>
+					<p>{{ jugador.position }}</p>
+					<p>Edad: {{ jugador.dateOfBirth | yearDiff}} años</p>
+					<p>{{ jugador.nationality }}</p>
+					<p>{{ jugador.marketValue }}</p>
+				</div>
+			</div>
+		</div>
+		
+	</lx-tab>
+</lx-tabs>

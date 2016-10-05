@@ -1,0 +1,41 @@
+a,a:visited{
+	color: inherit;
+	text-decoration: none;
+}
+.top-space{
+	margin-top: 1em;
+}
+
+.teamImg{
+	max-width: 120px;
+	max-height: 120px;
+}
+.card{
+	padding: 15px;
+	position: relative;
+}
+.name{
+	display: inline-block;
+	position: relative;
+}
+.valign{
+	display: inline-block;
+	vertical-align: middle;
+	position: absolute;
+	top: 50%;
+	transform:translateY(-50%);
+}
+.stats{
+	background: white;
+	padding: 15px;
+
+}
+.padding-left{
+	padding-left: 30px
+}
+/*.tableItem p{
+	float: right;
+}*/
+.tableItem img{
+	width: 80px;
+}

@@ -1,0 +1,14 @@
+{
+  "name": "angularfutapi",
+  "version": "1.0.0",
+  "description": "Fut api consumming",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Omar Avalos",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}
