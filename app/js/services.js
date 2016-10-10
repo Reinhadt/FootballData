@@ -1,4 +1,15 @@
 angular.module("FinalApp")
+//Interceptor para fijar los headers para TODAS las peticiones http
+.factory('httpInterceptor', function(){
+	return {
+		request: function(config){
+			config.headers['X-Auth-Token'] = '2c9a9879f8714d57b0ea2df6f199ee90';
+			config.headers['X-Response-Control'] = 'minified';
+
+			return config;
+		}
+	}
+})
 .factory("FutResource", function($resource){
 
 	 return  $resource('http://api.football-data.org/v1/soccerseasons', {});
